@@ -7,4 +7,34 @@ def get_min_age_user_name(data:list) -> str:
     Returns:
         str: The name of the user with the minimum age in the dictionary
     """
-    return 
+    keys= []
+    names =[]
+    for i in data:
+        if type(i['age']) == int:
+            keys.append(i['age'])
+            names.append(i['name'])
+        
+    min = keys[0]
+    for mx in keys:
+        if min > mx:
+            min = mx
+    return names[keys.index(min)]
+
+data = [
+  {
+    'name': 'John', 
+    'age': 32
+  }, 
+  {
+    'name': 'Mary', 
+    'age': 18
+  }, 
+  {
+    'name': 'Ann', 
+    'age': 20
+  }, 
+  {
+    'name': 'Ban', 
+    'age': 29
+  }]
+print(get_min_age_user_name(data))
